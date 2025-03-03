@@ -3,6 +3,7 @@
 import express from 'express';
 import routes from './routes.js';
 import { resolve } from 'node:path';
+import cors from 'cors';
 
 import './database';
 
@@ -10,6 +11,7 @@ class App {
 	//Criando classe, ajuda a organizar a inicialização do express
 	constructor() {
 		this.app = express();
+		this.app.use(cors());
 		this.middlewares();
 		this.routes();
 	}
